@@ -8,7 +8,7 @@ public class CalculatoGui extends JFrame {
     private Calculator calculator;
 
     public CalculatoGui() {
-        super("Interactive Calculator");
+        super("Calculator Guru");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 400);
         setLayout(new BorderLayout());
@@ -17,15 +17,15 @@ public class CalculatoGui extends JFrame {
 
         display = new JTextField();
         display.setEditable(false);
-        display.setFont(new Font("Arial", Font.PLAIN, 24));
+        display.setFont(new Font("Arial", Font.BOLD, 40));
         add(display, BorderLayout.NORTH);
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(5, 4, 5, 5));
 
         String[] buttonLabels = {
-                "7", "8", "9", "/",
+                "1", "2", "3", "/",
                 "4", "5", "6", "*",
-                "1", "2", "3", "-",
+                "7", "8", "9", "-",
                 "0", ".", "=", "+",
                 "C"
         };
@@ -33,7 +33,9 @@ public class CalculatoGui extends JFrame {
             JButton button = new JButton(label);
             button.setFont(new Font("Arial", Font.PLAIN, 20));
             button.addActionListener(new ButtonClickListener(calculator, display));
+            button.setBackground(Color.LIGHT_GRAY);
             buttonPanel.add(button);
+            button.setForeground(Color.magenta);
         }
         add(buttonPanel, BorderLayout.CENTER);
         setVisible(true);
